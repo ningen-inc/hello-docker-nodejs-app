@@ -11,6 +11,7 @@ services:
   app:
     build: ./app
     ports:
+      # デバッグ用に3000ポートをマッピングする、scale out時にはエラーとなる
       - "3000:3000"
     depends_on:
       - "redis"
@@ -19,4 +20,5 @@ services:
   redis:
     image: "redis:6.2"
     volumes:
+      # 永続化のため
       - ./redis/data:/data
