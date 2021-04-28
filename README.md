@@ -15,3 +15,4 @@ EC2のインスタンスでも動く
 $ docker-compose build
 $ docker-compose up
 ```
+* http://localhost/ を開く
