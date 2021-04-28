@@ -18,3 +18,5 @@ services:
     command: "sh ./wait-for redis:6379 -- node ./server.js"
   redis:
     image: "redis:6.2"
+    volumes:
+      - ./redis/data:/data
