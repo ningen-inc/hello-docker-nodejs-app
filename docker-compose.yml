@@ -8,6 +8,7 @@ services:
       - "80:80"
     depends_on:
       - "app"
+    restart: always
   app:
     build: ./app
     ports:
@@ -17,8 +18,10 @@ services:
       - "redis"
     # command: "node ./server.js"
     command: "sh ./wait-for redis:6379 -- node ./server.js"
+    restart: always
   redis:
     image: "redis:6.2"
     volumes:
       # 永続化のため
       - ./redis/data:/data
+    restart: always
